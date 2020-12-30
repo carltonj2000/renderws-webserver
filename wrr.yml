@@ -1,0 +1,21 @@
+http:
+  routers:
+    allbackendRouter:
+      rule: "Host(`catapp`)"
+      service: wrr
+  services:
+    wrr:
+      weighted:
+        services:
+          - name: backend1
+            weight: 4
+          - name: backend2
+            weight: 1
+    backend1:
+      loadBalancer:
+        servers:
+          - url: "http://apiserver1:1111"
+    backend2:
+      loadBalancer:
+        servers:
+          - url: "http://apiserver2:2222"

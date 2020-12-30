@@ -1,0 +1,21 @@
+http:
+  routers:
+    allbackendRouter:
+      rule: "Host(`catapp`)"
+      service: allbackend
+    adminRouter:
+      rule: "Host(`catapp`) && Path(`/admin`)"
+      service: blackhole
+  services:
+    blackhole:
+      loadBalancer:
+        servers:
+          - url: "http://apiserver1:1111"
+          # really need a dummy server above
+    allbackend:
+      loadBalancer:
+        servers:
+          - url: "http://apiserver1:1111"
+          - url: "http://apiserver2:2222"
+          - url: "http://apiserver3:3333"
+          - url: "http://apiserver4:4444"

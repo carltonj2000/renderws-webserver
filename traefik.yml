@@ -1,0 +1,11 @@
+entryPoints:
+  unsecure:
+    address: :80
+
+providers:
+  file:
+    filename: /etc/traefik/tcp.yml
+    watch: true
+
+log:
+  level: DEBUG

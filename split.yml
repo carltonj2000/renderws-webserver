@@ -1,0 +1,29 @@
+http:
+  routers:
+    allbackendRouter:
+      rule: "Host(`catapp`)"
+      service: allbackend
+    app1Router:
+      rule: "Host(`catapp`) && Path(`/app1`)"
+      service: backend1
+    app2Router:
+      rule: "Host(`catapp`) && Path(`/app2`)"
+      service: backend2
+  services:
+    allbackend:
+      loadBalancer:
+        servers:
+          - url: "http://apiserver1:1111"
+          - url: "http://apiserver2:2222"
+          - url: "http://apiserver3:3333"
+          - url: "http://apiserver4:4444"
+    backend1:
+      loadBalancer:
+        servers:
+          - url: "http://apiserver1:1111"
+          - url: "http://apiserver2:2222"
+    backend2:
+      loadBalancer:
+        servers:
+          - url: "http://apiserver3:3333"
+          - url: "http://apiserver4:4444"
