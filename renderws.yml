@@ -1,0 +1,17 @@
+http:
+  routers:
+    carltonwin8Router:
+      rule: "Host(`carltonwin8`)"
+      service: carltonwin8
+      entrypoints: web
+    carltonwin8Router-secure:
+      rule: "Host(`carltonwin8`)"
+      service: carltonwin8
+      entrypoints: websecure
+      tls: {}
+
+  services:
+    carltonwin8:
+      loadBalancer:
+        servers:
+          - url: "http://carltonwin8:80"

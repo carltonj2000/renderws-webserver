@@ -5,9 +5,9 @@ entryPoints:
     address: :443
 
 providers:
-  docker:
-    exposedByDefault: false
-    swarmMode: true
+  file:
+    filename: /etc/traefik/renderws.yml
+    watch: true
 
 log:
   level: DEBUG

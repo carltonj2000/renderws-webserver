@@ -7,6 +7,14 @@ services:
       - "80:80"
     volumes:
       - .:/etc/traefik
+
+# Sites
+  carltonwin8:
+    image: nginx:v1.19-alpine
+    volumes: 
+      - ./sites/carltonwin8/web:/usr/share/nginx/html
+ 
+# Test sites
   apiserver1:
     image: apiserver1
     ports:
