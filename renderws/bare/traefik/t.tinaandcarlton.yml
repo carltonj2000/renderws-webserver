@@ -1,0 +1,25 @@
+http:
+  routers:
+    tinaandcarltonHawaiiRouter:
+      rule: "Host(`tinaandcarlton`) && Path(`/hawaii`)"
+      service: tinaandcarltonhawaii
+      entrypoints: web
+    tinaandcarltonRouter:
+      rule: "Host(`tinaandcarlton`)"
+      service: tinaandcarlton
+      entrypoints: web
+    tinaandcarltonRouter-secure:
+      rule: "Host(`tinaandcarlton`)"
+      service: tinaandcarlton
+      entrypoints: websecure
+      tls: {}
+
+  services:
+    tinaandcarlton:
+      loadBalancer:
+        servers:
+          - url: "http://tinaandcarlton:80"
+    tinaandcarltonhawaii:
+      loadBalancer:
+        servers:
+          - url: "http://tinaandcarltonhawaii:1111"

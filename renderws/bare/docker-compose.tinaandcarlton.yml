@@ -1,0 +1,7 @@
+version: "3.7"
+
+services:
+  tinaandcarlton:
+    image: nginx:1.19-alpine
+    volumes:
+      - ./sites/tinaandcarlton/web:/usr/share/nginx/html

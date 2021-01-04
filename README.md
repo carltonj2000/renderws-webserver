@@ -1,5 +1,14 @@
 # Render Workstation Webserver
 
+Directories
+
+- **initial** code base on tutorial noted in [History](#History)
+- **renderws** setup for the render workstation
+  - **bare** traefik uses a setup file and does not query docker
+  - **label** traefik querys docker for the configuration
+- **sites** not stored in git and has all the data for the sites
+- **sites-test** stored in git example sites used during debug
+
 ```bash
 docker stack deploy -c docker-compose.bare.yml renderws
 docker stack deploy -c docker-compose.swarm.yml renderws
@@ -31,3 +40,7 @@ The setup in this repository is based on.
 
 - [Traefik Crash Course](https://youtu.be/C6IL8tjwC5E)
 - [repo for above](https://github.com/hnasr/javascript_playground/tree/master/traefik)
+
+## References
+
+- [Self-Signed Certs](https://meta.discourse.org/t/traefik-ssl-self-signed-certs/154039)

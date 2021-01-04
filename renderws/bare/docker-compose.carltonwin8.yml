@@ -1,0 +1,7 @@
+version: "3.7"
+
+services:
+  carltonwin8:
+    image: nginx:1.19-alpine
+    volumes:
+      - ./sites/carltonwin8/web:/usr/share/nginx/html

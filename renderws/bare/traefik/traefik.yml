@@ -6,7 +6,7 @@ entryPoints:
 
 providers:
   file:
-    filename: /etc/traefik/renderws.yml
+    filename: /etc/traefik/traefik.dyn.yml
     watch: true
 
 log:
