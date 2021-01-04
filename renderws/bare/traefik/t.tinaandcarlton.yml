@@ -1,9 +1,5 @@
 http:
   routers:
-    tinaandcarltonHawaiiRouter:
-      rule: "Host(`tinaandcarlton`) && Path(`/hawaii`)"
-      service: tinaandcarltonhawaii
-      entrypoints: web
     tinaandcarltonRouter:
       rule: "Host(`tinaandcarlton`)"
       service: tinaandcarlton
@@ -13,6 +9,10 @@ http:
       service: tinaandcarlton
       entrypoints: websecure
       tls: {}
+    tinaandcarltonHawaiiRouter:
+      rule: "Host(`tinaandcarlton`) && Path(`/hawaii`)"
+      service: tinaandcarltonhawaii
+      entrypoints: web
 
   services:
     tinaandcarlton:
