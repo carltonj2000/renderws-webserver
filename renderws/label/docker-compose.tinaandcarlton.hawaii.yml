@@ -15,3 +15,4 @@ services:
         - "traefik.http.routers.tinaandcarltonhawaii-secure.rule=Host(`tinaandcarlton`) && Path(`/hawaii`)"
         - "traefik.http.routers.tinaandcarltonhawaii-secure.service=tinaandcarltonhawaii"
         - "traefik.http.routers.tinaandcarltonhawaii-secure.tls.certResolver=hawaii"
+        #- "traefik.http.routers.tinaandcarltonhawaii-secure.tls.options=tlsoptions"

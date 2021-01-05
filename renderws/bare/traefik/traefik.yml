@@ -15,3 +15,8 @@ log:
 api:
   dashboard: true
   insecure: true
+
+tls:
+  options:
+    tlsoptions:
+      minVersion: VersionTLS12
