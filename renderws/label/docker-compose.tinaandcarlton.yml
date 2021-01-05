@@ -1,0 +1,17 @@
+version: "3.7"
+
+services:
+  tinaandcarlton:
+    image: nginx:1.19-alpine
+    volumes:
+      - ./sites/tinaandcarlton/web:/usr/share/nginx/html
+    deploy:
+      labels:
+        - "traefik.enable=true"
+        - "traefik.http.services.tinaandcarlton.loadbalancer.server.port=80"
+        - "traefik.http.routers.tinaandcarlton.rule=Host(`tinaandcarlton`)"
+        - "traefik.http.routers.tinaandcarlton.entrypoints=web"
+        - "traefik.http.routers.tinaandcarlton-secure.rule=Host(`tinaandcarlton`)"
+        - "traefik.http.routers.tinaandcarlton-secure.service=tinaandcarlton"
+        - "traefik.http.routers.tinaandcarlton-secure.entrypoints=websecure"
+        - "traefik.http.routers.tinaandcarlton-secure.tls={}"
