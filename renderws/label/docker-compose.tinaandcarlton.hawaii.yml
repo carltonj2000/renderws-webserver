@@ -2,13 +2,13 @@ version: "3.7"
 
 services:
   tinaandcarltonhawaii:
-    image: apiserver1
-    environment:
-      - "PORT=1111"
+    image: hawaii
+    volumes:
+      - /renderws/carltonData/cj_pics/pics2020/hawaii:/carltonData/cj_pics/pics2020/hawaii
     deploy:
       labels:
         - "traefik.enable=true"
-        - "traefik.http.services.tinaandcarltonhawaii.loadbalancer.server.port=1111"
+        - "traefik.http.services.tinaandcarltonhawaii.loadbalancer.server.port=3000"
         - "traefik.http.routers.tinaandcarltonhawaii.entrypoints=web"
         - "traefik.http.routers.tinaandcarltonhawaii.rule=Host(`tinaandcarlton`) && Path(`/hawaii`)"
         - "traefik.http.routers.tinaandcarltonhawaii-secure.entrypoints=websecure"

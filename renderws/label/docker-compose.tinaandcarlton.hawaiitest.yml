@@ -1,0 +1,18 @@
+version: "3.7"
+
+services:
+  tinaandcarltonhawaiitest:
+    image: apiserver1
+    environment:
+      - "PORT=1111"
+    deploy:
+      labels:
+        - "traefik.enable=true"
+        - "traefik.http.services.tinaandcarltonhawaiitest.loadbalancer.server.port=1111"
+        - "traefik.http.routers.tinaandcarltonhawaiitest.entrypoints=web"
+        - "traefik.http.routers.tinaandcarltonhawaiitest.rule=Host(`tinaandcarlton`) && Path(`/hawaiitest`)"
+        - "traefik.http.routers.tinaandcarltonhawaiitest-secure.entrypoints=websecure"
+        - "traefik.http.routers.tinaandcarltonhawaiitest-secure.rule=Host(`tinaandcarlton`) && Path(`/hawaiitest`)"
+        - "traefik.http.routers.tinaandcarltonhawaiitest-secure.service=tinaandcarltonhawaiitest"
+        - "traefik.http.routers.tinaandcarltonhawaiitest-secure.tls.certResolver=hawaiitest"
+        #- "traefik.http.routers.tinaandcarltonhawaii-secure.tls.options=tlsoptions"
