@@ -4,7 +4,7 @@ services:
   tinaandcarltonhawaii:
     image: hawaii
     volumes:
-      - /renderws/carltonData/cj_pics/pics2020/hawaii:/carltonData/cj_pics/pics2020/hawaii
+      - /renderws/carltonData/cj_pics/pics2021/hawaii:/carltonData/cj_pics/pics2021/hawaii
     deploy:
       labels:
         - "traefik.enable=true"
